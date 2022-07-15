@@ -5,16 +5,28 @@ namespace Homework
         /// <summary>Метод запускает в консоли решение задачи 47</summary>
         public static void Task47Sol()
         {
-            Console.Write("\nEnter number of lines: \t\t");
-            int m = Convert.ToInt32(Console.ReadLine());
-            Console.Write("\nEnter number of columns:\t");
-            int n = Convert.ToInt32(Console.ReadLine());
-            double[,] array = new double[m, n];
+            double[,] array = Methods.AskSizeDoubleArray();
             Methods.FillArray(array);
-            Console.WriteLine("\nRandom array:\n");
             Methods.PrintArray(array);
         }
         /// <summary>Метод запускает в консоли решение задачи 50</summary>
-
+        public static void Task50Sol()
+        {
+            Console.Write("\nEnter line position (first line starts with elemnt '0') : \t\t");
+            int rows = Convert.ToInt32(Console.ReadLine());
+            Console.Write("\nEnter column position (first column starts with elemnt '0') :\t\t");
+            int columns = Convert.ToInt32(Console.ReadLine());
+            int[,] array = Methods.AskSizeIntArray();
+            Methods.FillArray(array);
+            Methods.PrintArray(array);
+            if (rows >= array.GetLength(0) || columns >= array.GetLength(1))
+            {
+                Console.WriteLine("\nThe element you are looking for does not exist!");
+            }
+            else
+            {
+                Console.WriteLine($"\nThe element you are looking for :\t{array[rows, columns]}");
+            }
+        }
     }
 }
