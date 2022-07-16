@@ -72,5 +72,21 @@ namespace Homework
             double[,] array = new double[m, n];
             return array;
         }
+        /// <summary>Метод находит среднее арифметическое элементов в каждом стлобце двумерного массива</summary>
+        public static void ArithMeanColumns(int[,] array)
+        {
+            double sum = 0;
+            double result = 0;
+            int rows = array.GetLength(0);
+            for (int i = 0; i < array.GetLength(1); i++)
+            {
+                for (int j = 0; j < array.GetLength(0); j++)
+                {
+                    sum += array[j, i];
+                }
+                result = Math.Round(Convert.ToDouble(sum / rows), 1);
+                Console.Write($"{result}\t");
+            }
+        }
     }
 }
